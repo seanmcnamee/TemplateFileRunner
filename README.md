@@ -153,3 +153,8 @@ When using Visual Studio Code (or any commandline-based approach), ensure you ar
 ```
 dotnet run
 ```
+
+## Validation
+The program will attempt to validation your configuration before execution. Any errors will be written to the console. Notes about validation
+- Validation will prevent duplicate output file names from being created
+- Validation will ensure all template replacement values are defined (Not Null or Whitespace)
