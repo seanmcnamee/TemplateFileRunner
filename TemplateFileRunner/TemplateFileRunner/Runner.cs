@@ -33,7 +33,7 @@ namespace TemplateFileRunner.TemplateFileRunner
             var index = 0;
             foreach(var outputFile in _settings.OutputFiles)
             {
-                var outputFileName = $"{outputFile.Prefix}{_settings.OutputBaseName}{outputFile.Suffix}{(outputFile.AppendCounterSuffix ? index : string.Empty)}{(outputFile.AppendDateTimeSuffix ? DateTime.Now.ToLongTimeString() : string.Empty)}";
+                var outputFileName = $"{outputFile.Prefix}{_settings.OutputBaseName}{outputFile.Suffix}{(outputFile.AppendCounterSuffix ? index : string.Empty)}{(outputFile.AppendDateTimeSuffix ? DateTime.Now.ToString("yyyyMMdd-HHmmss-fffffff") : string.Empty)}";
                 var outputFileFullPath = $"{_settings.ResourceDirectory}/{_settings.OutputDirectory}/{outputFileName}.{_settings.OutputFileExtension}";
 
                 var properties = outputFile.ReplacementProperties.GetPropertyValues(outputFile.ReplacementProperties);

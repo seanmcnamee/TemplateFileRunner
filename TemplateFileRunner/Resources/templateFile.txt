@@ -1,8 +1,12 @@
-﻿Here are my contents. {0}
+﻿Hello {0},
 
-Some of it is on new lines.
+After reviewing your profile, we've think that your experience in {1} would make you a great candidate for {2}! Our offer is as follows:
 
+{3}
 
+For more information, please visit {4}
 
+{0}, don't miss out on this once in a lifetime opportunity!
 
-Yipeee!
+Thanks,
+{5}
