@@ -36,7 +36,7 @@ Thanks,
 > |  Suffix | text to be appended to this specific output file name |
 > |  AppendDateTimeSuffix | This will add the DateTime at the end of the file name. This prevents duplicate file names. It also prevents overriding files during different executions |
 > |  AppendCounterSuffix | This will add an index (starting at 0) at the end of the file name. This prevents duplicate file names.  |
-> |  Values | Names do not matter (so you can make them descriptive for your use case), as long as they match the FileTemplateSettings.ReplacementProperties class. <br><br>If you need more/less values, add/remove from the ReplacementProperties class. <br><br>For newlines, use ```\r\n``` and for tabs use ```\t``` |
+> |  Values | Names do not matter (so you can make them descriptive for your use case), as long as they match the FileTemplateSettings.ReplacementProperties class. <br><br>If you need more/less values, add/remove from the ReplacementProperties class. <br><br>For newlines, use ```\r\n```. For tabs, use ```\t```. For quotes, use ```\"``` |
 
 appsettings.json:
 ```json
