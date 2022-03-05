@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using TemplateFileRunner;
+using TemplateFileRunner.Configuration;
 using TemplateFileRunner.TemplateFileRunner;
 
 using IHost host = Host.CreateDefaultBuilder(args)
@@ -30,6 +31,8 @@ static void ConfigureServices(HostBuilderContext context, IServiceCollection ser
     //Get Settings from configuration
     services.AddSingleton<IFileTemplateSettings>((services) => 
         services.GetService<IConfiguration>().GetRequiredSection("FileTemplateSettings").Get<FileTemplateSettings>());
+    services.AddSingleton<IEnvironmentSettings>((services) =>
+        services.GetService<IConfiguration>().GetRequiredSection("EnvironmentSettings").Get<EnvironmentSettings>());
 
     services.AddSingleton<IFileTemplateSettingsValidator, FileTemplateSettingsValidator>();
     services.AddSingleton<IFileManipulation, FileManipulation>();

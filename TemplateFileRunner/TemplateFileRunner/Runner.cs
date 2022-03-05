@@ -1,6 +1,5 @@
-﻿
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
+using TemplateFileRunner.Configuration;
 
 namespace TemplateFileRunner.TemplateFileRunner
 {

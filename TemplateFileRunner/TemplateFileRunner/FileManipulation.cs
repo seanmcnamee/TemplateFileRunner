@@ -1,5 +1,6 @@
 ﻿
 using Microsoft.Extensions.Logging;
+using TemplateFileRunner.Configuration;
 
 namespace TemplateFileRunner.TemplateFileRunner
 {
@@ -12,11 +13,11 @@ namespace TemplateFileRunner.TemplateFileRunner
 
     public class FileManipulation : IFileManipulation
     {
-        private readonly IFileTemplateSettings _settings;
+        private readonly IEnvironmentSettings _environmentSettings;
         private readonly ILogger<FileManipulation> _logger;
-        public FileManipulation(IFileTemplateSettings settings, ILogger<FileManipulation> logger)
+        public FileManipulation(IEnvironmentSettings environmentSettings, ILogger<FileManipulation> logger)
         {
-            _settings = settings;
+            _environmentSettings = environmentSettings;
             _logger = logger;
         }
 
@@ -58,11 +59,12 @@ namespace TemplateFileRunner.TemplateFileRunner
 
         public async Task<bool> WriteToFile(string outputFileName, string fileContents)
         {
-            _logger.LogInformation("Path: {path}", Path.GetFullPath($"../../../{outputFileName}"));
+            var outputPathLocationPrefix = _environmentSettings.ExecutedFromSolution ? "../../../" : string.Empty;
+            _logger.LogInformation("Path: {path}", Path.GetFullPath($"{outputPathLocationPrefix}{outputFileName}"));
 
             try
             {
-                using (StreamWriter outputFile = new StreamWriter($"../../../{outputFileName}"))
+                using (StreamWriter outputFile = new StreamWriter($"{outputPathLocationPrefix}{outputFileName}"))
                 {
                     await outputFile.WriteAsync(fileContents);
                 }

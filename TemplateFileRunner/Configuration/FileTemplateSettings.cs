@@ -1,4 +1,4 @@
-﻿namespace TemplateFileRunner
+﻿namespace TemplateFileRunner.Configuration
 {
     public interface IFileTemplateSettings
     {

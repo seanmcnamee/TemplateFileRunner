@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace TemplateFileRunner
+namespace TemplateFileRunner.Configuration
 {
     public interface IFileTemplateSettingsValidator
     {
