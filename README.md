@@ -4,7 +4,7 @@
 This application aims to allow for batch creation of files based off a template.
 
 ## How to Configure
-1. Create your template file. It should include 0-indexed values as placeholders. You can reuse indexes throughout the file. An example template file is shown below.
+1. Create your template file. It should include 0-indexed values as placeholders. You can reuse indexes throughout the file. Placeholders should surround indices with curly braces ```{}```. An example template file is shown below.
 ```txt
 Hello {0},
 
@@ -34,9 +34,9 @@ Thanks,
 > | --    | -- |
 > | Prefix | text to be prepended to this specific output file name  |
 > |  Suffix | text to be appended to this specific output file name |
-> |  AppendDateTimeSuffix | This will add the DateTime at the end of the file name. This prevents duplicate file names. |
+> |  AppendDateTimeSuffix | This will add the DateTime at the end of the file name. This prevents duplicate file names. It also prevents overriding files during different executions |
 > |  AppendCounterSuffix | This will add an index (starting at 0) at the end of the file name. This prevents duplicate file names.  |
-> |  Values | Names do not matter (so you can make them descriptive for your use case), as long as they match the FileTemplateSettings.ReplacementProperties. <br><br>If you need more/less values, add/remove from the ReplacementProperties class. <br><br>For newlines, use ```\r\n``` and for tabs use ```\t``` |
+> |  Values | Names do not matter (so you can make them descriptive for your use case), as long as they match the FileTemplateSettings.ReplacementProperties class. <br><br>If you need more/less values, add/remove from the ReplacementProperties class. <br><br>For newlines, use ```\r\n``` and for tabs use ```\t``` |
 
 appsettings.json:
 ```json
@@ -149,7 +149,7 @@ Head of Talent Acquisition
 When using Visual Studio, simply execute the project.
 
 ### Command Line Interface (CLI)
-When using Visual Studio Code (or any commandline-based apporach), ensure you are in the folder with the "TemplateFilerRunner.csproj" file, then execute
+When using Visual Studio Code (or any commandline-based approach), ensure you are in the folder with the "TemplateFilerRunner.csproj" file, then execute
 ```
 dotnet run
 ```
